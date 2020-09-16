@@ -11,6 +11,7 @@ class Bot {
     },
     args: [
       '--window-size=1920,1080',
+      '--no-sandbox'
     ],});
     this.page = await this.browser.newPage();
     const tabs = await this.browser.pages();
