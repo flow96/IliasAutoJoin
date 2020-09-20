@@ -47,6 +47,11 @@ class Bot {
         page.waitForNavigation(),
         page.click("li[id='tab_join']")
       ]);
+      if(await page.$("#cdf_65")){
+        console.log("Bestätigung der Spielregeln erforderlich");
+        await page.select("#cdf_65", "65_0");
+        console.log("Spielregeln bestätigt");
+      }
       await page.click("input[name='cmd[join]']");
       console.log("Kurs beigetreten");
     }else{
