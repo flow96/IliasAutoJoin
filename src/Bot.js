@@ -47,6 +47,10 @@ class Bot {
         page.waitForNavigation(),
         page.click("li[id='tab_join']")
       ]);
+      if(await page.$("#subject")){
+        console.log("Aufnahmeantrag muss ausgefüllt werden");
+        await page.type("#subject", config.acceptanceText);
+      }
       if(await page.$("#cdf_65")){
         console.log("Bestätigung der Spielregeln erforderlich");
         await page.select("#cdf_65", "65_0");
